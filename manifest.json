@@ -21,7 +21,8 @@
     }
   },
   "web_accessible_resources": [
-    "images/shiba.png"
+    "images/shiba.png",
+    "bubbles/*"
   ],
   "icons": {
     "16": "icon/16-icon.png",
