@@ -2,28 +2,33 @@
 let img = document.createElement("img");
 img.id = "Shiba";
 // manifest has the src of the image, google will get it using the extension
-img.src = chrome.extension.getURL("images/shiba.png");
+img.src = chrome.extension.getURL("images/koko.png");
 img.style.position = "fixed";
 img.style.left = 0;
 img.style.bottom = "20px";
-img.style.height = "200px";
+img.style.height = "175px";
 img.style.width = "auto";
 img.style.zIndex = 200;
 // add to the content of a document
 document.body.appendChild(img);
 console.log("I am very cry, and this is hard");
 
+// having issues with this in the eventListener
+// probably bc the prev is getting set to curr 
+// when it only needs to happen on startup
+// curr bubble 
 let curr = Math.floor(Math.random() * 31);
+// pre bubble is current bubble at the beginning
 let prev = curr;
 window.addEventListener('load', function load(event) {
-    // Randomly pick a phrase on-click
+    // user clicks - program chooses a random index
     document.getElementById('Shiba').onclick = function() {
         // Display Message
-        let prevID = "hiddenMessage" + prev;
-        let currID = "hiddenMessage" + curr;
-        if(document.getElementById(prevID).style.display != 'block') {
-            document.getElementById(currID).style.display = 'block';
-            setTimeout(function(){ document.getElementById(currID).style.display = "none"; }, 6000);
+        let idPrev = "bubble" + prev;
+        let idCurr = "bubble" + curr;
+        if(document.getElementById(idPrev).style.display != 'block') {
+            document.getElementById(idCurr).style.display = 'block';
+            setTimeout(function(){ document.getElementById(idCurr).style.display = "none"; }, 6000);
         }
         prev = curr;
         while(prev == curr) {
@@ -42,10 +47,10 @@ window.addEventListener('load', function load(event) {
 let quotes = new Array(31);
 for(let i = 0; i < quotes.length; i++) {
 	quotes[i] = document.createElement("img");
-	quotes[i].id = "hiddenMessage" + i;
+	quotes[i].id = "bubble" + i;
     quotes[i].style.display = "none";
     quotes[i].style.position = "fixed";
-    quotes[i].style.left = "175px";
+    quotes[i].style.left = "200px";
     quotes[i].style.bottom = "175px";
     quotes[i].style.height = "130px";
 	quotes[i].style.width = "auto";
@@ -53,6 +58,7 @@ for(let i = 0; i < quotes.length; i++) {
     document.body.appendChild(quotes[i]);
 }
 
+// quote images
 quotes[0].src = chrome.extension.getURL("bubbles/one.png");
 quotes[1].src = chrome.extension.getURL("bubbles/two.png");
 quotes[2].src = chrome.extension.getURL("bubbles/three.png");
