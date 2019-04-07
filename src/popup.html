@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
+    <style> 
+      body {
+      font-family: 'Ubuntu', 
+      sans-serif;
+      font-size: 100%;
+      min-width: 300px; /* your desired width */
+      max-width: 50%;
+      position: relative;
+      vertical-align:middle;
+      background-color: #000000;
+      }
       button {
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
         outline: none;
       }
     </style>
   </head>
   <body>
-    <button id="activateIcon"></button>
     <script src="popup.js"></script>
+    <p><font color="aqua">Would you like some affirmations today?</font></p>
+    <button id="activeShiba"></button>
   </body>
 </html>

@@ -10,12 +10,17 @@
             ],
             "js": [
                 "src/content.js"
-            ],
-            "run_at": "document_end"
+            ]
         }
     ],
     "browser_action": {
         "default_popup": "src/popup.html",
         "default_icon": "icon/original.png"
-    }
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "images/shiba.png"
+    ]
 }

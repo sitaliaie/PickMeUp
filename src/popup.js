@@ -1,9 +1,9 @@
-let activateIcon = document.getElementById('activateIcon');
+let activeShiba = document.getElementById('activeShiba');
 
-activateIcon.onclick = function(element) {
+activeShiba.onclick = function(element) {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
+    chrome.tabs.onUpdated.addListener(
     	tabs[0].id,
-    	{code: 'document.getElementById("Icon").style.display = "none";'});
+    	{code: 'document.getElementById("Shiba").style.display = "none";'});
 	});
 };
