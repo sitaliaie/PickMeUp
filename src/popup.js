@@ -1,9 +1,9 @@
-let activeShiba = document.getElementById('activeShiba');
+let toggleShiba = document.getElementById('toggleShiba');
 
-activeShiba.onclick = function(element) {
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.onUpdated.addListener(
-    	tabs[0].id,
-    	{code: 'document.getElementById("Shiba").style.display = "none";'});
-	});
+toggleShiba.onclick = function(element) {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.executeScript(
+      tabs[0].id,
+      {code: 'document.getElementById("Shiba").style.display = "none";'});
+  });
 };
